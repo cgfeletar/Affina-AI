@@ -1,0 +1,1465 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Affina AI helps boutique businesses run like they have a bigger team, without losing the personal touch their clients come for. AI consulting for med spas, beauty boutiques, and boutique fitness studios in Portland."
+    />
+    <title>Affina AI · AI consulting for boutique businesses in Portland</title>
+
+    <!-- Fonts: Fraunces (display serif) + Inter Tight feels too techy; pairing with a quieter sans, Söhne is licensed so using a close open-source cousin -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Bodoni+Moda:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* ============================================================
+       Affina AI — Landing
+       Aesthetic: editorial, luxe, restrained. Warm off-white with
+       dusty rose + sage accents. Serif display, clean sans body.
+       ============================================================ */
+
+      :root {
+        /* Color palette — warm, restrained */
+        --bg: #f4efe8; /* warm off-white, not stark */
+        --bg-deep: #ebe4d9; /* slightly deeper off-white for contrast sections */
+        --ink: #2b2722; /* near-black, warm */
+        --ink-soft: #5a5249; /* secondary text */
+        --ink-mute: #8a8278; /* tertiary / labels */
+        --rose: #b88574; /* dusty rose accent */
+        --rose-deep: #8e5d4e; /* deeper rose for hover states */
+        --sage: #8a9582; /* sage accent */
+        --line: #d9d0c2; /* hairline borders */
+        --line-soft: #e5dccd; /* very faint divider */
+
+        /* Type scale */
+        --font-display: "Fraunces", "Cormorant Garamond", Georgia, serif;
+        --font-wordmark: "Bodoni Moda", "Bodoni 72", Didot, Georgia, serif;
+        --font-body:
+          "Inter", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+
+        /* Spacing rhythm */
+        --max-width: 1280px;
+        --gutter: clamp(1.25rem, 4vw, 3rem);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: var(--bg);
+        color: var(--ink);
+        font-family: var(--font-body);
+        font-weight: 300;
+        line-height: 1.6;
+        font-size: 16px;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+        overflow-x: hidden;
+      }
+
+      /* Selection */
+      ::selection {
+        background: var(--rose);
+        color: var(--bg);
+      }
+
+      /* ============================================================
+       Typography
+       ============================================================ */
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: var(--font-display);
+        font-weight: 300;
+        letter-spacing: -0.01em;
+        line-height: 1.05;
+        color: var(--ink);
+      }
+
+      .display-xl {
+        font-size: clamp(3rem, 8vw, 7rem);
+        font-weight: 300;
+        line-height: 0.98;
+        letter-spacing: -0.025em;
+      }
+
+      .display-lg {
+        font-size: clamp(2.25rem, 5.5vw, 4.5rem);
+        font-weight: 300;
+        line-height: 1.02;
+        letter-spacing: -0.02em;
+      }
+
+      .display-md {
+        font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+        font-weight: 300;
+        line-height: 1.1;
+        letter-spacing: -0.015em;
+      }
+
+      .italic {
+        font-style: italic;
+        font-variation-settings: "opsz" 144;
+      }
+
+      .eyebrow {
+        font-family: var(--font-body);
+        font-size: 0.75rem;
+        font-weight: 400;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        color: var(--ink-mute);
+      }
+
+      p {
+        font-size: 1.0625rem;
+        line-height: 1.65;
+        color: var(--ink-soft);
+      }
+
+      .lede {
+        font-size: clamp(1.125rem, 1.5vw, 1.375rem);
+        line-height: 1.55;
+        color: var(--ink-soft);
+        font-weight: 300;
+        max-width: 50ch;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      /* ============================================================
+       Layout
+       ============================================================ */
+      .container {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 0 var(--gutter);
+      }
+
+      section {
+        padding: clamp(5rem, 10vw, 9rem) 0;
+      }
+
+      /* ============================================================
+       Navigation
+       ============================================================ */
+      .nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        padding: 1.5rem var(--gutter);
+        background: var(--bg);
+        box-shadow:
+          0 1px 0 var(--line-soft),
+          0 4px 20px rgba(43, 39, 34, 0.04);
+        transition: box-shadow 0.4s ease;
+      }
+
+      .nav.scrolled {
+        box-shadow:
+          0 1px 0 var(--line-soft),
+          0 6px 24px rgba(43, 39, 34, 0.07);
+      }
+
+      .nav-inner {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+      }
+
+      .nav-logo {
+        font-family: var(--font-wordmark);
+        font-size: 1.625rem;
+        font-weight: 500;
+        letter-spacing: 0;
+        color: var(--ink);
+        display: flex;
+        align-items: baseline;
+        gap: 0.4rem;
+      }
+
+      .nav-logo .mark {
+        font-style: italic;
+        color: var(--rose);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: clamp(1.25rem, 2.5vw, 2.5rem);
+        list-style: none;
+        align-items: center;
+      }
+
+      .nav-links a {
+        font-size: 0.875rem;
+        font-weight: 400;
+        color: var(--ink-soft);
+        letter-spacing: 0.01em;
+        position: relative;
+        padding: 0.25rem 0;
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 1px;
+        width: 0;
+        background: var(--rose);
+        transition: width 0.35s ease;
+      }
+
+      .nav-links a:hover {
+        color: var(--ink);
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      .nav-cta {
+        font-size: 0.8125rem;
+        font-weight: 400;
+        padding: 0.875rem 1.75rem;
+        background: var(--ink);
+        color: #ffffff;
+        border: 1px solid var(--ink);
+        border-radius: 999px;
+        letter-spacing: 0.005em;
+        transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .nav-cta:hover {
+        background: var(--rose-deep);
+        border-color: var(--rose-deep);
+        color: #ffffff;
+        transform: translateY(-1px);
+      }
+
+      .nav-cta::after {
+        display: none !important;
+      }
+
+      /* Mobile nav toggle */
+      .nav-toggle {
+        display: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+      }
+
+      .nav-toggle span {
+        display: block;
+        width: 22px;
+        height: 1px;
+        background: var(--ink);
+        margin: 5px 0;
+        transition: all 0.3s ease;
+      }
+
+      @media (max-width: 820px) {
+        .nav-links {
+          position: fixed;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          width: 80%;
+          max-width: 360px;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: center;
+          gap: 2rem;
+          padding: 3rem 2.5rem;
+          background: var(--bg);
+          transform: translateX(100%);
+          transition: transform 0.4s ease;
+          border-left: 1px solid var(--line);
+        }
+
+        .nav-links.open {
+          transform: translateX(0);
+        }
+
+        .nav-links a {
+          font-size: 1.5rem;
+          font-family: var(--font-display);
+          font-weight: 300;
+        }
+
+        .nav-toggle {
+          display: block;
+          z-index: 101;
+          position: relative;
+        }
+
+        .nav-toggle.open span:nth-child(1) {
+          transform: translateY(6px) rotate(45deg);
+        }
+        .nav-toggle.open span:nth-child(2) {
+          opacity: 0;
+        }
+        .nav-toggle.open span:nth-child(3) {
+          transform: translateY(-6px) rotate(-45deg);
+        }
+      }
+
+      /* ============================================================
+       Hero
+       ============================================================ */
+      .hero {
+        padding-top: clamp(8rem, 14vw, 11rem);
+        padding-bottom: clamp(4rem, 8vw, 7rem);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: clamp(2rem, 5vw, 5rem);
+        align-items: center;
+      }
+
+      @media (max-width: 900px) {
+        .hero-grid {
+          grid-template-columns: 1fr;
+          gap: 3rem;
+        }
+      }
+
+      .hero-eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 2rem;
+        opacity: 0;
+        animation: fadeUp 0.8s ease 0.1s forwards;
+      }
+
+      .hero-eyebrow .dot {
+        width: 6px;
+        height: 6px;
+        background: var(--rose);
+        border-radius: 50%;
+        display: inline-block;
+      }
+
+      .hero-headline {
+        margin-bottom: 2rem;
+        opacity: 0;
+        animation: fadeUp 0.9s ease 0.25s forwards;
+      }
+
+      .hero-headline .accent {
+        font-style: italic;
+        color: var(--rose-deep);
+        font-variation-settings: "opsz" 144;
+      }
+
+      .hero-lede {
+        margin-bottom: 2.5rem;
+        opacity: 0;
+        animation: fadeUp 0.9s ease 0.45s forwards;
+      }
+
+      .hero-cta-row {
+        display: flex;
+        gap: 1.25rem;
+        align-items: center;
+        flex-wrap: wrap;
+        opacity: 0;
+        animation: fadeUp 0.9s ease 0.6s forwards;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.625rem;
+        font-family: var(--font-body);
+        font-size: 0.9375rem;
+        font-weight: 400;
+        padding: 1rem 1.75rem;
+        border-radius: 999px;
+        transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        cursor: pointer;
+        border: none;
+        letter-spacing: 0.005em;
+      }
+
+      .btn-primary {
+        background: var(--ink);
+        color: var(--bg);
+      }
+
+      .btn-primary:hover {
+        background: var(--rose-deep);
+        transform: translateY(-1px);
+      }
+
+      .btn-primary .arrow {
+        transition: transform 0.3s ease;
+      }
+
+      .btn-primary:hover .arrow {
+        transform: translateX(3px);
+      }
+
+      .btn-text {
+        color: var(--ink);
+        padding: 1rem 0;
+        border-bottom: 1px solid var(--ink);
+        border-radius: 0;
+      }
+
+      .btn-text:hover {
+        color: var(--rose-deep);
+        border-bottom-color: var(--rose-deep);
+      }
+
+      /* Hero image */
+      .hero-image {
+        position: relative;
+        opacity: 0;
+        animation: fadeIn 1.2s ease 0.5s forwards;
+      }
+
+      .image-frame {
+        position: relative;
+        background: var(--bg-deep);
+        border: 1px solid var(--line);
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--ink-mute);
+        text-align: center;
+      }
+
+      .image-frame .placeholder-label {
+        padding: 1.5rem;
+        max-width: 80%;
+      }
+
+      .image-frame .placeholder-label .small {
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        color: var(--ink-mute);
+        margin-bottom: 0.75rem;
+        display: block;
+      }
+
+      .image-frame .placeholder-label .desc {
+        font-family: var(--font-display);
+        font-size: 1.0625rem;
+        font-style: italic;
+        color: var(--ink-soft);
+        line-height: 1.4;
+      }
+
+      .hero-image .image-frame {
+        aspect-ratio: 4 / 5;
+        width: 100%;
+      }
+
+      /* Decorative element behind hero image */
+      .hero-image::before {
+        content: "";
+        position: absolute;
+        top: -20px;
+        right: -20px;
+        width: 60%;
+        height: 40%;
+        background: var(--sage);
+        opacity: 0.15;
+        z-index: -1;
+        border-radius: 2px;
+      }
+
+      /* ============================================================
+       Marquee strip — names verticals so visitors self-identify
+       ============================================================ */
+      .marquee {
+        padding: 2rem 0;
+        border-top: 1px solid var(--line-soft);
+        border-bottom: 1px solid var(--line-soft);
+        overflow: hidden;
+      }
+
+      .marquee-track {
+        display: flex;
+        gap: 3.5rem;
+        animation: scroll 45s linear infinite;
+        white-space: nowrap;
+        width: max-content;
+      }
+
+      .marquee-item {
+        font-family: var(--font-display);
+        font-size: clamp(1.25rem, 2vw, 1.625rem);
+        font-style: italic;
+        font-weight: 300;
+        color: var(--ink-soft);
+        display: flex;
+        align-items: center;
+        gap: 3.5rem;
+      }
+
+      .marquee-item::after {
+        content: "✻";
+        color: var(--rose);
+        font-style: normal;
+        font-size: 0.9rem;
+      }
+
+      @keyframes scroll {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-50%);
+        }
+      }
+
+      /* ============================================================
+       Who this is for
+       ============================================================ */
+      .who-section {
+        background: var(--bg-deep);
+      }
+
+      .section-header {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: clamp(2rem, 5vw, 5rem);
+        margin-bottom: clamp(3rem, 6vw, 5rem);
+        align-items: end;
+      }
+
+      @media (max-width: 800px) {
+        .section-header {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+      }
+
+      .verticals-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 0;
+        border-top: 1px solid var(--line);
+      }
+
+      .vertical {
+        padding: 2.25rem 1.75rem 2.25rem 0;
+        border-bottom: 1px solid var(--line);
+        border-right: 1px solid var(--line);
+        transition: background 0.3s ease;
+      }
+
+      .vertical:last-child {
+        border-right: none;
+      }
+
+      @media (max-width: 800px) {
+        .vertical {
+          border-right: none;
+          padding: 2rem 0;
+        }
+      }
+
+      .vertical-number {
+        font-family: var(--font-display);
+        font-size: 0.875rem;
+        font-style: italic;
+        color: var(--rose);
+        margin-bottom: 1rem;
+        display: block;
+      }
+
+      .vertical h3 {
+        font-size: 1.5rem;
+        margin-bottom: 0.75rem;
+        font-weight: 400;
+      }
+
+      .vertical p {
+        font-size: 0.9375rem;
+        color: var(--ink-soft);
+      }
+
+      /* ============================================================
+       "Is this you?" scenarios
+       ============================================================ */
+      .scenarios {
+        background: var(--bg);
+      }
+
+      .scenarios-list {
+        display: flex;
+        flex-direction: column;
+        border-top: 1px solid var(--line);
+      }
+
+      .scenario {
+        display: grid;
+        grid-template-columns: 80px 1fr auto;
+        gap: clamp(1.5rem, 4vw, 3.5rem);
+        padding: clamp(2.5rem, 5vw, 4rem) 0;
+        border-bottom: 1px solid var(--line);
+        align-items: start;
+        transition: background 0.4s ease;
+        position: relative;
+      }
+
+      .scenario:hover {
+        background: var(--bg-deep);
+      }
+
+      @media (max-width: 700px) {
+        .scenario {
+          grid-template-columns: 1fr;
+          gap: 1rem;
+          padding: 2.5rem 0;
+        }
+      }
+
+      .scenario-num {
+        font-family: var(--font-display);
+        font-size: 1rem;
+        font-style: italic;
+        color: var(--ink-mute);
+        padding-top: 0.5rem;
+      }
+
+      .scenario-content h3 {
+        font-size: clamp(1.5rem, 2.5vw, 2rem);
+        margin-bottom: 1rem;
+        font-weight: 300;
+        max-width: 22ch;
+      }
+
+      .scenario-content p {
+        max-width: 50ch;
+        font-size: 1rem;
+      }
+
+      .scenario-tag {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: var(--ink-mute);
+        padding-top: 0.85rem;
+      }
+
+      @media (max-width: 700px) {
+        .scenario-tag {
+          padding-top: 0;
+        }
+      }
+
+      /* ============================================================
+       Story / approach band
+       ============================================================ */
+      .approach {
+        background: var(--bg-deep);
+        position: relative;
+      }
+
+      .approach-grid {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: clamp(2rem, 6vw, 6rem);
+        align-items: center;
+      }
+
+      @media (max-width: 900px) {
+        .approach-grid {
+          grid-template-columns: 1fr;
+          gap: 3rem;
+        }
+      }
+
+      .approach-image .image-frame {
+        aspect-ratio: 4 / 5;
+        width: 100%;
+      }
+
+      .approach-text .eyebrow {
+        margin-bottom: 1.5rem;
+      }
+
+      .approach-text h2 {
+        margin-bottom: 1.75rem;
+      }
+
+      .approach-text .lede {
+        margin-bottom: 1.75rem;
+        max-width: 48ch;
+      }
+
+      .approach-text p {
+        max-width: 52ch;
+        margin-bottom: 1.5rem;
+      }
+
+      .approach-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-top: 1rem;
+        font-size: 0.9375rem;
+        color: var(--ink);
+        border-bottom: 1px solid var(--line);
+        padding-bottom: 0.25rem;
+        transition: all 0.3s ease;
+      }
+
+      .approach-link:hover {
+        color: var(--rose-deep);
+        border-bottom-color: var(--rose-deep);
+      }
+
+      /* ============================================================
+       Testimonial / story placeholder
+       ============================================================ */
+      .testimonial {
+        text-align: center;
+        padding: clamp(5rem, 10vw, 9rem) 0;
+      }
+
+      .testimonial-quote {
+        font-family: var(--font-display);
+        font-size: clamp(1.625rem, 3.5vw, 2.625rem);
+        font-weight: 300;
+        line-height: 1.25;
+        letter-spacing: -0.01em;
+        max-width: 24ch;
+        margin: 0 auto 2.5rem;
+        color: var(--ink);
+      }
+
+      .testimonial-quote .italic-accent {
+        font-style: italic;
+        color: var(--rose-deep);
+        font-variation-settings: "opsz" 144;
+      }
+
+      .testimonial-attribution {
+        font-size: 0.8125rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: var(--ink-mute);
+      }
+
+      .testimonial-note {
+        font-family: var(--font-display);
+        font-style: italic;
+        font-size: 0.875rem;
+        color: var(--ink-mute);
+        margin-top: 3rem;
+        opacity: 0.7;
+      }
+
+      /* ============================================================
+       CTA band
+       ============================================================ */
+      .cta-band {
+        background: var(--ink);
+        color: var(--bg);
+        padding: clamp(5rem, 10vw, 8rem) 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .cta-band::before {
+        content: "";
+        position: absolute;
+        top: -150px;
+        right: -150px;
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(
+          circle,
+          var(--rose-deep) 0%,
+          transparent 70%
+        );
+        opacity: 0.4;
+        pointer-events: none;
+      }
+
+      .cta-band .container {
+        position: relative;
+        z-index: 1;
+      }
+
+      .cta-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: clamp(2rem, 5vw, 5rem);
+        align-items: end;
+      }
+
+      @media (max-width: 800px) {
+        .cta-grid {
+          grid-template-columns: 1fr;
+          gap: 2.5rem;
+        }
+      }
+
+      .cta-band h2 {
+        color: var(--bg);
+        margin-bottom: 1.5rem;
+      }
+
+      .cta-band h2 .italic-accent {
+        font-style: italic;
+        color: var(--rose);
+      }
+
+      .cta-band p {
+        color: rgba(244, 239, 232, 0.75);
+        max-width: 42ch;
+      }
+
+      .cta-band .btn-primary {
+        background: var(--bg);
+        color: var(--ink);
+      }
+
+      .cta-band .btn-primary:hover {
+        background: var(--rose);
+        color: var(--bg);
+      }
+
+      .cta-meta {
+        font-size: 0.8125rem;
+        color: rgba(244, 239, 232, 0.5);
+        margin-top: 1rem;
+        letter-spacing: 0.05em;
+      }
+
+      /* ============================================================
+       Footer
+       ============================================================ */
+      footer {
+        background: var(--bg);
+        padding: 4rem 0 2.5rem;
+        border-top: 1px solid var(--line-soft);
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1fr 1fr;
+        gap: 3rem;
+        margin-bottom: 4rem;
+      }
+
+      @media (max-width: 800px) {
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 2.5rem;
+        }
+      }
+
+      .footer-brand .nav-logo {
+        margin-bottom: 1.25rem;
+      }
+
+      .footer-brand p {
+        max-width: 36ch;
+        font-size: 0.9375rem;
+        color: var(--ink-soft);
+      }
+
+      .footer-col h4 {
+        font-family: var(--font-body);
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        color: var(--ink-mute);
+        margin-bottom: 1.25rem;
+        font-weight: 500;
+      }
+
+      .footer-col ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.85rem;
+      }
+
+      .footer-col a {
+        font-size: 0.9375rem;
+        color: var(--ink-soft);
+        transition: color 0.3s ease;
+      }
+
+      .footer-col a:hover {
+        color: var(--rose-deep);
+      }
+
+      .footer-bottom {
+        padding-top: 2rem;
+        border-top: 1px solid var(--line-soft);
+        display: flex;
+        justify-content: space-between;
+        gap: 2rem;
+        flex-wrap: wrap;
+        font-size: 0.8125rem;
+        color: var(--ink-mute);
+      }
+
+      /* ============================================================
+       Animations
+       ============================================================ */
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      /* Scroll-triggered reveals */
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition:
+          opacity 0.9s ease,
+          transform 0.9s ease;
+      }
+
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Reduce motion */
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ============================================================
+       Navigation
+       ============================================================ -->
+    <nav class="nav" id="nav">
+      <div class="nav-inner">
+        <a href="/" class="nav-logo">
+          Affina
+          <span class="italic" style="font-style: italic; color: var(--rose)"
+            >AI</span
+          >
+        </a>
+
+        <ul class="nav-links" id="navLinks">
+          <li><a href="/what-i-build">What I build</a></li>
+          <li><a href="/industries">Industries</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/journal">Journal</a></li>
+          <li><a href="/contact" class="nav-cta">Book a free consult</a></li>
+        </ul>
+
+        <button
+          class="nav-toggle"
+          id="navToggle"
+          aria-label="Toggle navigation"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- ============================================================
+       Hero
+       ============================================================ -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-text">
+            <div class="hero-eyebrow">
+              <span class="dot"></span>
+              <span class="eyebrow">AI consulting · Portland, Oregon</span>
+            </div>
+
+            <h1 class="display-xl hero-headline">
+              Run like you have a <span class="accent">bigger team</span>,
+              without losing the personal touch.
+            </h1>
+
+            <p class="lede hero-lede">
+              Affina AI helps boutique businesses give their clients more
+              personalized attention and their owners more time. Med spas,
+              beauty studios, fitness boutiques.
+            </p>
+
+            <div class="hero-cta-row">
+              <a href="/contact" class="btn btn-primary">
+                Book a free consult
+                <svg
+                  class="arrow"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 14 14"
+                  fill="none"
+                >
+                  <path
+                    d="M1 7H13M13 7L7 1M13 7L7 13"
+                    stroke="currentColor"
+                    stroke-width="1.2"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </a>
+              <a href="/what-i-build" class="btn btn-text">See what I build</a>
+            </div>
+          </div>
+
+          <div class="hero-image">
+            <div class="image-frame">
+              <div class="placeholder-label">
+                <span class="small">Hero portrait</span>
+                <span class="desc"
+                  >Founder portrait — natural window light, soft warm tones,
+                  working at a small marble surface or against a linen
+                  background</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+       Marquee — verticals scroll
+       ============================================================ -->
+    <div class="marquee">
+      <div class="marquee-track">
+        <span class="marquee-item">Med spas</span>
+        <span class="marquee-item">Blowdry bars</span>
+        <span class="marquee-item">Pilates studios</span>
+        <span class="marquee-item">Nail studios</span>
+        <span class="marquee-item">Lash artists</span>
+        <span class="marquee-item">Stylists</span>
+        <span class="marquee-item">Florists</span>
+        <span class="marquee-item">Interior designers</span>
+        <span class="marquee-item">Barre studios</span>
+        <span class="marquee-item">Yoga studios</span>
+        <!-- Duplicate for seamless loop -->
+        <span class="marquee-item">Med spas</span>
+        <span class="marquee-item">Blowdry bars</span>
+        <span class="marquee-item">Pilates studios</span>
+        <span class="marquee-item">Nail studios</span>
+        <span class="marquee-item">Lash artists</span>
+        <span class="marquee-item">Stylists</span>
+        <span class="marquee-item">Florists</span>
+        <span class="marquee-item">Interior designers</span>
+        <span class="marquee-item">Barre studios</span>
+        <span class="marquee-item">Yoga studios</span>
+      </div>
+    </div>
+
+    <!-- ============================================================
+       Who this is for
+       ============================================================ -->
+    <section class="who-section" id="who">
+      <div class="container">
+        <div class="section-header reveal">
+          <div>
+            <span class="eyebrow">Who this is for</span>
+            <h2 class="display-lg" style="margin-top: 1.25rem">
+              Built for owner-operators who care about
+              <span class="italic" style="color: var(--rose-deep)">how</span>
+              the work gets done.
+            </h2>
+          </div>
+          <p class="lede">
+            Most AI tools are built for tech companies. Affina AI is built for
+            the kind of business where the owner remembers your name, your last
+            appointment, and what you're going through. The kind of business
+            where polish matters.
+          </p>
+        </div>
+
+        <div class="verticals-grid reveal">
+          <div class="vertical">
+            <span class="vertical-number">i.</span>
+            <h3>Med spas</h3>
+            <p>
+              Aesthetics practices and injectable studios where consults,
+              follow-ups, and personalization are the product.
+            </p>
+          </div>
+
+          <div class="vertical">
+            <span class="vertical-number">ii.</span>
+            <h3>Beauty studios</h3>
+            <p>
+              Blowdry bars, nail and lash studios, salons. Anywhere the client
+              experience lives in the small details.
+            </p>
+          </div>
+
+          <div class="vertical">
+            <span class="vertical-number">iii.</span>
+            <h3>Boutique fitness</h3>
+            <p>
+              Pilates, barre, yoga. Premium studios where membership is a
+              relationship, not a transaction.
+            </p>
+          </div>
+
+          <div class="vertical">
+            <span class="vertical-number">iv.</span>
+            <h3>Adjacent crafts</h3>
+            <p>
+              Stylists, florists, interior designers. Solo practitioners and
+              small teams running on taste and trust.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+       Is this you? scenarios
+       ============================================================ -->
+    <section class="scenarios" id="scenarios">
+      <div class="container">
+        <div class="section-header reveal">
+          <div>
+            <span class="eyebrow">Is this you?</span>
+            <h2 class="display-lg" style="margin-top: 1.25rem">
+              Three kinds of stuck I see
+              <span class="italic" style="color: var(--rose-deep)">over</span>
+              and over.
+            </h2>
+          </div>
+        </div>
+
+        <div class="scenarios-list">
+          <div class="scenario reveal">
+            <span class="scenario-num">01</span>
+            <div class="scenario-content">
+              <h3>You're losing leads in your DMs.</h3>
+              <p>
+                Inquiries land in Instagram, in email, in form submissions you
+                meant to follow up on. By the time you get back, they've already
+                booked somewhere else, or worse, ghosted into the void.
+              </p>
+            </div>
+            <span class="scenario-tag">— Lead capture</span>
+          </div>
+
+          <div class="scenario reveal">
+            <span class="scenario-num">02</span>
+            <div class="scenario-content">
+              <h3>You know your clients, but your tools don't.</h3>
+              <p>
+                You remember birthdays, anniversaries, the treatment they had
+                three months ago. But that knowledge lives in your head, not in
+                any system that can act on it without you having to remember to
+                log in.
+              </p>
+            </div>
+            <span class="scenario-tag">— Client memory</span>
+          </div>
+
+          <div class="scenario reveal">
+            <span class="scenario-num">03</span>
+            <div class="scenario-content">
+              <h3>
+                The marketing-on-top-of-everything-else thing isn't working.
+              </h3>
+              <p>
+                You're posting when you can. Writing newsletters at 11 PM. The
+                content is good when you have time, and you don't have time. The
+                result reads like an afterthought, even though your work isn't.
+              </p>
+            </div>
+            <span class="scenario-tag">— Marketing &amp; content</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+       Approach
+       ============================================================ -->
+    <section class="approach">
+      <div class="container">
+        <div class="approach-grid">
+          <div class="approach-image reveal">
+            <div class="image-frame">
+              <div class="placeholder-label">
+                <span class="small">Lifestyle shot</span>
+                <span class="desc"
+                  >Working environment — laptop on a wooden desk, notebook,
+                  coffee cup, soft natural light, slight blur on
+                  foreground</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="approach-text reveal">
+            <span class="eyebrow">The approach</span>
+            <h2 class="display-md" style="margin-top: 1.5rem">
+              AI that
+              <span class="italic" style="color: var(--rose-deep)"
+                >disappears</span
+              >
+              into the way you already work.
+            </h2>
+            <p class="lede">
+              I don't sell software. I build small, specific systems on the
+              tools you already trust, like Gmail, Airtable, and your booking
+              platform, that quietly do the things you don't have time for.
+            </p>
+            <p>
+              Every build is shaped around your actual bottleneck. We start with
+              a free conversation about where your time goes, what your clients
+              notice, and what's been on your "I should really fix this" list
+              for too long. From there, I propose a build, usually one or two to
+              start, and ship it in two to four weeks.
+            </p>
+            <a href="/about" class="approach-link">
+              More about the approach
+              <svg width="12" height="12" viewBox="0 0 14 14" fill="none">
+                <path
+                  d="M1 7H13M13 7L7 1M13 7L7 13"
+                  stroke="currentColor"
+                  stroke-width="1.2"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+       Testimonial placeholder
+       ============================================================ -->
+    <section class="testimonial">
+      <div class="container">
+        <div class="reveal">
+          <p class="testimonial-quote">
+            <span class="italic-accent">"</span>A real client quote will live
+            here once the first engagement is underway.<span
+              class="italic-accent"
+              >"</span
+            >
+          </p>
+          <p class="testimonial-attribution">
+            — Client name · Studio name, Portland
+          </p>
+          <p class="testimonial-note">
+            Case study coming soon. First build in progress with a Portland med
+            spa.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+       CTA band
+       ============================================================ -->
+    <section class="cta-band">
+      <div class="container">
+        <div class="cta-grid">
+          <div>
+            <span class="eyebrow" style="color: rgba(244, 239, 232, 0.6)"
+              >Start here</span
+            >
+            <h2 class="display-lg" style="margin-top: 1.5rem">
+              A 30-minute conversation,
+              <span class="italic-accent">no pitch deck.</span>
+            </h2>
+            <p style="margin-top: 1.5rem">
+              Tell me where you're stuck. I'll tell you whether AI is actually
+              the right fix, and if it is, what I'd build first. No sales
+              script, no follow-up sequence.
+            </p>
+          </div>
+
+          <div>
+            <a href="/contact" class="btn btn-primary">
+              Book your consult
+              <svg
+                class="arrow"
+                width="14"
+                height="14"
+                viewBox="0 0 14 14"
+                fill="none"
+              >
+                <path
+                  d="M1 7H13M13 7L7 1M13 7L7 13"
+                  stroke="currentColor"
+                  stroke-width="1.2"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </a>
+            <p class="cta-meta">
+              Portland-based · Working with clients across the U.S.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+       Footer
+       ============================================================ -->
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="/" class="nav-logo">
+              Affina
+              <span style="font-style: italic; color: var(--rose)">AI</span>
+            </a>
+            <p>
+              AI consulting for boutique businesses that care about how their
+              work gets done. Based in Portland, Oregon.
+            </p>
+          </div>
+
+          <div class="footer-col">
+            <h4>Explore</h4>
+            <ul>
+              <li><a href="/what-i-build">What I build</a></li>
+              <li><a href="/industries">Industries</a></li>
+              <li><a href="/about">About</a></li>
+              <li><a href="/journal">Journal</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Industries</h4>
+            <ul>
+              <li><a href="/industries/med-spas">Med spas</a></li>
+              <li><a href="/industries/beauty">Beauty studios</a></li>
+              <li><a href="/industries/fitness">Boutique fitness</a></li>
+              <li><a href="/industries/creatives">Creatives</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Connect</h4>
+            <ul>
+              <li><a href="/contact">Book a call</a></li>
+              <li><a href="mailto:hello@affina.ai">hello@affina.ai</a></li>
+              <li><a href="https://instagram.com">Instagram</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <span>© 2026 Affina AI. All rights reserved.</span>
+          <span>Portland, Oregon</span>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Nav scroll state
+      const nav = document.getElementById("nav");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 20) {
+          nav.classList.add("scrolled");
+        } else {
+          nav.classList.remove("scrolled");
+        }
+      });
+
+      // Mobile nav toggle
+      const navToggle = document.getElementById("navToggle");
+      const navLinks = document.getElementById("navLinks");
+      navToggle.addEventListener("click", () => {
+        navToggle.classList.toggle("open");
+        navLinks.classList.toggle("open");
+      });
+
+      // Close mobile nav on link click
+      document.querySelectorAll(".nav-links a").forEach((link) => {
+        link.addEventListener("click", () => {
+          navToggle.classList.remove("open");
+          navLinks.classList.remove("open");
+        });
+      });
+
+      // Scroll reveal
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.12,
+          rootMargin: "0px 0px -60px 0px",
+        },
+      );
+
+      document
+        .querySelectorAll(".reveal")
+        .forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>
