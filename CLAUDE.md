@@ -115,6 +115,28 @@ The seo agent in `.claude/agents/` should handle most of this when invoked on a 
 
 ---
 
+## AI Crawler Policy
+
+Affina AI **allows** all major AI search and training crawlers. AI citations are treated as a primary distribution channel, not a leak: being quoted by ChatGPT, Perplexity, Claude, and Google AI Overviews drives qualified inbound that traditional SEO does not.
+
+The following user agents are explicitly allowed in `robots.txt`:
+
+| Provider     | User agents                                  |
+| ------------ | -------------------------------------------- |
+| OpenAI       | `GPTBot`, `ChatGPT-User`, `OAI-SearchBot`    |
+| Anthropic    | `ClaudeBot`, `anthropic-ai`, `Claude-Web`    |
+| Perplexity   | `PerplexityBot`                              |
+| Google AI    | `Google-Extended`                            |
+| Meta         | `Meta-ExternalAgent`                         |
+| ByteDance    | `Bytespider`                                 |
+| Amazon       | `Amazonbot`                                  |
+| Apple        | `Applebot-Extended`                          |
+| Common Crawl | `CCBot`                                      |
+
+Do not block any of these without an explicit decision from the owner. The `seo` agent should treat this section as authoritative and not re-ask the AI crawler policy question.
+
+---
+
 ## Photography
 
 - All real photography goes in `/public/images/` organized by section
