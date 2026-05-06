@@ -18,7 +18,7 @@ const SCENARIOS = [
   },
   {
     num: "03",
-    heading: "The marketing-on-top-of-everything-else thing isn't working.",
+    heading: "Marketing keeps falling to the bottom of your list.",
     body: "You're posting when you can. Writing newsletters at 11 PM. The content is good when you have time, and you don't have time. The result reads like an afterthought, even though your work isn't.",
     tag: "Marketing & content",
   },
@@ -36,8 +36,8 @@ export function Scenarios() {
                 id="scenarios-heading"
                 className="mt-5 font-display text-display-lg font-light"
               >
-                Three kinds of stuck I see{" "}
-                <span className="italic text-rose-deep">over</span> and over.
+                Where boutique businesses get stretched{" "}
+                <span className="italic text-rose-deep">thin</span>.
               </h2>
             </div>
           </div>

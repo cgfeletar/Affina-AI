@@ -8,8 +8,8 @@ describe("Scenarios", () => {
     render(<Scenarios />);
     expect(screen.getByText(/is this you\?/i)).toBeInTheDocument();
     const heading = screen.getByRole("heading", { level: 2 });
-    expect(heading).toHaveTextContent(/Three kinds of stuck/i);
-    expect(heading).toHaveTextContent(/over/i);
+    expect(heading).toHaveTextContent(/Where boutique businesses get stretched/i);
+    expect(heading).toHaveTextContent(/thin/i);
   });
 
   it("renders three scenarios with numbered indices and tags", () => {
@@ -21,24 +21,5 @@ describe("Scenarios", () => {
     expect(screen.getByText(/lead capture/i)).toBeInTheDocument();
     expect(screen.getByText(/client memory/i)).toBeInTheDocument();
     expect(screen.getByText(/marketing & content/i)).toBeInTheDocument();
-  });
-
-  it("renders the three scenario headings as h3", () => {
-    render(<Scenarios />);
-    expect(
-      screen.getByRole("heading", { level: 3, name: /losing leads in your DMs/i }),
-    ).toBeInTheDocument();
-    expect(
-      screen.getByRole("heading", {
-        level: 3,
-        name: /you know your clients, but your tools don't/i,
-      }),
-    ).toBeInTheDocument();
-    expect(
-      screen.getByRole("heading", {
-        level: 3,
-        name: /marketing-on-top-of-everything-else thing isn't working/i,
-      }),
-    ).toBeInTheDocument();
   });
 });

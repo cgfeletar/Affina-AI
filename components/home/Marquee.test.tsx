@@ -10,9 +10,12 @@ describe("Marquee", () => {
       "Med spas",
       "Beauty salons",
       "Boutique fitness",
+      "Event planners",
       "Stylists",
-      "Florists",
+      "Wellness practitioners",
       "Interior designers",
+      "Photographers",
+      "Businesses built on craft",
     ];
     for (const name of verticalNames) {
       const matches = Array.from(container.querySelectorAll("span")).filter(
