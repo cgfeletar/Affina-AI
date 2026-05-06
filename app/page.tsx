@@ -1,9 +1,21 @@
+import { Hero } from "@/components/home/Hero";
+import { Marquee } from "@/components/home/Marquee";
+import { WhoSection } from "@/components/home/WhoSection";
+import { Scenarios } from "@/components/home/Scenarios";
+import { Approach } from "@/components/home/Approach";
+import { Testimonial } from "@/components/home/Testimonial";
+import { CtaBand } from "@/components/home/CtaBand";
+
 export default function Home() {
   return (
-    <div className="mx-auto flex min-h-[60dvh] max-w-content items-center justify-center px-[var(--gutter)] pt-[clamp(8rem,14vw,11rem)]">
-      <p className="text-ink-mute">
-        Home content lands in step 5.
-      </p>
-    </div>
+    <>
+      <Hero />
+      <Marquee />
+      <WhoSection />
+      <Scenarios />
+      <Approach />
+      <Testimonial />
+      <CtaBand />
+    </>
   );
 }
