@@ -69,10 +69,10 @@ Feature: [name]
 Slug: [feature-slug]
 Stage: [pre-flight | analyst | gate-1 | implementation | lint-gate | test | review | gate-2 | lessons | done]
 Review iteration: [0 | 1 | 2]
-Last updated: [ISO timestamp]
+Last updated: [YYYY-MM-DD]
 ```
 
-Update `pipeline-state.md` at the end of every stage before moving on.
+Update `pipeline-state.md` at the end of every stage before moving on. **Use date-only format (`YYYY-MM-DD`) for the `Last updated` field, not an ISO timestamp.** Per-second precision adds noise without signal across long-running pipelines; daily granularity is enough.
 
 ---
 
