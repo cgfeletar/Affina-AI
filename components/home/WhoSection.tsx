@@ -44,15 +44,15 @@ export function WhoSection() {
                 className="mt-5 font-display text-display-lg font-light"
               >
                 Built for owner-operators who care about{" "}
-                <span className="italic text-rose-deep">how</span> the work
-                gets done.
+                <span className="italic text-rose-deep">how</span> the work gets
+                done.
               </h2>
             </div>
             <p className="text-lede font-light text-ink-soft">
-              Most AI tools are built for tech companies. Affina AI is built
-              for the kind of business where the owner remembers your name,
-              your last appointment, and what you&apos;re going through. The
-              kind of business where polish matters.
+              Most AI tools are built for tech companies. Affina AI is built for
+              the kind of business where the owner remembers your name, your
+              last appointment, and what you&apos;re going through. The kind of
+              business where polish matters.
             </p>
           </div>
         </Reveal>

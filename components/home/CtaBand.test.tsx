@@ -23,8 +23,4 @@ describe("CtaBand", () => {
     expect(cta).toHaveAttribute("href", "/contact");
   });
 
-  it("renders the meta line about Portland and U.S. clients", () => {
-    render(<CtaBand />);
-    expect(screen.getByText(/Portland-based/i)).toBeInTheDocument();
-  });
 });

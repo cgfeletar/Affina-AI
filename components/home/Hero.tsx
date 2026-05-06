@@ -40,18 +40,19 @@ export function Hero() {
               className="mb-8 font-display text-display-lg font-light text-balance"
               style={fadeUpStyle("0.25s")}
             >
-              Run like you have a{" "}
-              <span className="italic text-rose-deep">bigger team</span>,
-              without losing the personal touch.
+              The personal touch of a{" "}
+              <span className="italic text-rose-deep">small business</span>. The
+              capacity of a{" "}
+              <span className="italic text-rose-deep">bigger one</span>.
             </h1>
 
             <p
               className="mb-10 max-w-[50ch] text-lede font-light text-ink-soft"
               style={fadeUpStyle("0.45s")}
             >
-              Affina AI helps boutique businesses give their clients more
-              personalized attention and their owners more time. You wear a lot
-              of hats, we&apos;ll take some.
+              Affina AI quietly runs the parts of your business that don&apos;t
+              need you, so you can focus on the parts that do. You wear a lot of
+              hats — we&apos;ll take some.
             </p>
 
             <div

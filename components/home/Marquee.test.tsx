@@ -8,15 +8,11 @@ describe("Marquee", () => {
     const { container } = render(<Marquee />);
     const verticalNames = [
       "Med spas",
-      "Blowdry bars",
-      "Pilates studios",
-      "Nail studios",
-      "Lash artists",
+      "Beauty salons",
+      "Boutique fitness",
       "Stylists",
       "Florists",
       "Interior designers",
-      "Barre studios",
-      "Yoga studios",
     ];
     for (const name of verticalNames) {
       const matches = Array.from(container.querySelectorAll("span")).filter(

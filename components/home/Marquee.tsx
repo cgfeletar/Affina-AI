@@ -2,15 +2,14 @@ import { Fragment } from "react";
 
 const VERTICALS = [
   "Med spas",
-  "Blowdry bars",
-  "Pilates studios",
-  "Nail studios",
-  "Lash artists",
+  "Beauty salons",
+  "Boutique fitness",
+  "Event planners",
   "Stylists",
-  "Florists",
+  "Wellness practitioners",
   "Interior designers",
-  "Barre studios",
-  "Yoga studios",
+  "Photographers",
+  "Businesses built on craft",
 ] as const;
 
 export function Marquee() {

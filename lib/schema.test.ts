@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { organizationSchema } from "./schema";
+import { localBusinessSchema, organizationSchema } from "./schema";
 import { SITE } from "./site";
 
 describe("organizationSchema", () => {
@@ -47,5 +47,48 @@ describe("organizationSchema", () => {
   it("serializes to valid JSON (no functions, no undefined)", () => {
     const json = JSON.stringify(schema);
     expect(() => JSON.parse(json)).not.toThrow();
+  });
+});
+
+describe("localBusinessSchema", () => {
+  const schema = localBusinessSchema();
+
+  it("declares both Organization and LocalBusiness types so the entity merges with organizationSchema", () => {
+    expect(schema["@context"]).toBe("https://schema.org");
+    expect(schema["@type"]).toEqual(["Organization", "LocalBusiness"]);
+  });
+
+  it("uses the same @id as organizationSchema (so JSON-LD parsers merge them)", () => {
+    expect(schema["@id"]).toBe(`${SITE.url}#organization`);
+    expect(schema["@id"]).toBe(organizationSchema()["@id"]);
+  });
+
+  it("inherits core identity fields from SITE constants", () => {
+    expect(schema.name).toBe(SITE.name);
+    expect(schema.url).toBe(SITE.url);
+    expect(schema.description).toBe(SITE.description);
+    expect(schema.email).toBe(SITE.email);
+    expect(schema.sameAs).toEqual([SITE.instagram]);
+  });
+
+  it("includes the same PostalAddress and GeoCircle as organizationSchema", () => {
+    const orgSchema = organizationSchema();
+    expect(schema.address).toEqual(orgSchema.address);
+    expect(schema.areaServed).toEqual(orgSchema.areaServed);
+  });
+
+  it("declares priceRange (LocalBusiness recommends this)", () => {
+    expect(schema.priceRange).toBe("$$$");
+  });
+
+  it("declares knowsAbout topics for AI search engines (GEO/AEO signal)", () => {
+    expect(Array.isArray(schema.knowsAbout)).toBe(true);
+    const topics = schema.knowsAbout as string[];
+    expect(topics).toContain("AI consulting");
+    expect(topics.length).toBeGreaterThanOrEqual(3);
+  });
+
+  it("serializes to valid JSON", () => {
+    expect(() => JSON.parse(JSON.stringify(schema))).not.toThrow();
   });
 });
